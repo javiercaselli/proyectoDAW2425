@@ -1,9 +1,8 @@
 package com.alanturing.proyectodaw2425.dominio;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.Set;
 
 @Entity
 public class Instituto {
@@ -22,6 +21,17 @@ public class Instituto {
     private String correo;
 
     private String localizacion;
+
+    @OneToMany(mappedBy = "instituto")
+    private Set<EstudianteCicloInstituto> estudianteCicloInstituto;
+
+    public Set<EstudianteCicloInstituto> getEstudianteCicloInstituto() {
+        return estudianteCicloInstituto;
+    }
+
+    public void setEstudianteCicloInstituto(Set<EstudianteCicloInstituto> estudianteCicloInstituto) {
+        this.estudianteCicloInstituto = estudianteCicloInstituto;
+    }
 
     public Long getCodigoIes() {
         return codigoIes;
