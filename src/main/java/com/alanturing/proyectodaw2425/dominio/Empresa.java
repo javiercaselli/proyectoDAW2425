@@ -80,8 +80,8 @@ public class Empresa {
     @Size(max = 100)
     @NotNull
     @Nationalized
-    @Column(name = "\"contraseña\"", nullable = false, length = 100)
-    private String contraseña;
+    @Column(name = "\"contrasenia\"", nullable = false, length = 100)
+    private String contrasenia;
 
     public String getCif() {
         return cif;
@@ -171,12 +171,12 @@ public class Empresa {
         this.email = email;
     }
 
-    public String getContraseña() {
-        return contraseña;
+    public String getContrasenia() {
+        return contrasenia;
     }
 
-    public void setContraseña(String contraseña) {
-        this.contraseña = contraseña;
+    public void setContrasenia(String contraseña) {
+        this.contrasenia = contraseña;
     }
 
 }

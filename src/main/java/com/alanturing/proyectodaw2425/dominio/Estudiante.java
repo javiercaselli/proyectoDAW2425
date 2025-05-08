@@ -69,6 +69,12 @@ public class Estudiante {
     @Column(name = "email", nullable = false, length = 100)
     private String email;
 
+    @Size(max = 100)
+    @NotNull
+    @Nationalized
+    @Column(name = "contrasenia", nullable = false, length = 100)
+    private String contrasenia;
+
     @Size(max = 1000)
     @Nationalized
     @Column(name = "img_perfil", length = 1000)
@@ -228,5 +234,11 @@ public class Estudiante {
         this.certificacionesEstudiantes = certificacionesEstudiantes;
     }
 
+    public String getContrasenia() {
+        return contrasenia;
+    }
 
+    public void setContrasenia(String contrasenia) {
+        this.contrasenia = contrasenia;
+    }
 }
