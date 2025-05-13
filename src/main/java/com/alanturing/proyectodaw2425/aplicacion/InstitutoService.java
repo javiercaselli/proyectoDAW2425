@@ -34,7 +34,7 @@ public class InstitutoService {
 
         // Si la tupla existe, modificamos los datos
         instituto.setContrasenia(datosInstituto.getContrasenia());
-        instituto.setCorreo(datosInstituto.getCorreo());
+        instituto.setEmail(datosInstituto.getEmail());
         instituto.setLocalizacion(datosInstituto.getLocalizacion());
         instituto.setTelefono(datosInstituto.getTelefono());
         instituto.setDescripcion(datosInstituto.getDescripcion());

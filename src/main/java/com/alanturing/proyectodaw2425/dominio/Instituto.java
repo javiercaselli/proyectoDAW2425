@@ -18,7 +18,7 @@ public class Instituto {
 
     private String contrasenia;
 
-    private String correo;
+    private String email;
 
     private String localizacion;
 
@@ -73,12 +73,12 @@ public class Instituto {
         this.contrasenia = contrasenia;
     }
 
-    public String getCorreo() {
-        return correo;
+    public String getEmail() {
+        return email;
     }
 
-    public void setCorreo(String correo) {
-        this.correo = correo;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getLocalizacion() {
