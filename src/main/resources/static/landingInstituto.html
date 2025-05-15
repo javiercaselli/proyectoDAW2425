@@ -41,14 +41,17 @@
                     // Salida a tabla
                     response.forEach(instituto => {
                         $('#listaInstitutos').append(
-                            "<tr>" +
+                            "<tr data-id='" + instituto.codigoIes + "'>" +
                                 "<th scope='row'>" + instituto.codigoIes + "</th>" +
                                 "<td>" + instituto.descripcion + "</td>" +
                                 "<td>" + instituto.urlPagina + "</td>" +
                                 "<td>" + instituto.telefono + "</td>" +
                                 "<td>" + instituto.email + "</td>" +
                                 "<td>" + instituto.localizacion + "</td>" +
-                                "<td>" + instituto.localizacion + "</td>" +
+                                "<td>" +
+                                "   <a style='color: black;' href=\"institutoEditar.html?id="+ instituto.codigoIes +"\"><i class=\"bi bi-pencil-square\"></i></a>" +
+                                "   &nbsp;<i style='cursor:pointer;' class=\"bi bi-trash\"></i>" +
+                                "</td>" +
                             "</tr>");
                     });
 
@@ -60,8 +63,31 @@
             })
         });
     </script>
-
+    <a href="institutoCrear.html">
+        <button type="button" class="btn btn-primary"><i class="bi bi-floppy"></i>&nbsp;&nbsp;&nbsp;Crear</button>
+    </a>
     <p>Has iniciado sesión correctamente.</p>
 </div>
 </body>
+<script>
+    $("#listaInstitutos").on("click", "i.bi-trash", function () {
+        const fila = $(this).closest("tr");
+        const id = fila.data("id");
+
+        if (confirm("¿Estás seguro de eliminar el registro?")) {
+            $.ajax({
+                url: 'http://localhost:8080/api/instituto/eliminar/' + id,
+                method: 'DELETE',
+                success: function (response) {
+                    //fila.remove();
+                    window.location.href = "landingInstituto.html";
+                },
+                error: function () {
+                    $('#error').text('Error al borrar el registro.');
+                }
+            })
+        } else {alert("Operación cancelada.")}
+
+    })
+</script>
 </html>

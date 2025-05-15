@@ -33,7 +33,7 @@ public class InstitutoService {
         Instituto instituto = institutoRepository.findById(id).orElseThrow(() -> new RuntimeException("No existe el instituto"));
 
         // Si la tupla existe, modificamos los datos
-        instituto.setContrasenia(datosInstituto.getContrasenia());
+        if (datosInstituto.getContrasenia() != null) instituto.setContrasenia(datosInstituto.getContrasenia());
         instituto.setEmail(datosInstituto.getEmail());
         instituto.setLocalizacion(datosInstituto.getLocalizacion());
         instituto.setTelefono(datosInstituto.getTelefono());
